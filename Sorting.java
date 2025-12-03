@@ -127,24 +127,22 @@ public class Sorting {
      * @param args  not used
      */
     public static void main(String[] args) {
-        final int SIZE = 20000;
-        Random rand = new Random();
 
-        List<Integer> list1 = new ArrayList<>(SIZE);
-        for (int i = 0; i < SIZE; i++) {
-            list1.add(rand.nextInt(1_000_000));
-        }
+        List<Integer> list1 = new ArrayList<>(Arrays.asList(8, 6, 7, 5, 3, 0, 9));
+    List<Integer> list2 = new ArrayList<>(list1);   // Make a copy
 
-        List<Integer> list2 = new ArrayList<>(list1);
+    int quickComparisons = quicksort(list1);
+    int heapComparisons = heapsort(list2);
 
-        int quickComparisons = quicksort(list1);
-        int heapComparisons = heapsort(list2);
+    System.out.println("Original list: [8, 6, 7, 5, 3, 0, 9]");
+    System.out.println("Quicksort result: " + list1);
+    System.out.println("Heapsort result: " + list2);
 
-        System.out.println("Quicksort comparisons: " + quickComparisons);
-        System.out.println("Heapsort comparisons: " + heapComparisons);
+    System.out.println("Quicksort comparisons: " + quickComparisons);
+    System.out.println("Heapsort comparisons: " + heapComparisons);
 
-        System.out.println("Quicksort sorted correctly: " + isSorted(list1));
-        System.out.println("Heapsort sorted correctly: " + isSorted(list2));
+    System.out.println("Quicksort sorted correctly: " + isSorted(list1));
+    System.out.println("Heapsort sorted correctly: " + isSorted(list2));
     }
 
     // Verifies that a list is sorted in non-decreasing order.
